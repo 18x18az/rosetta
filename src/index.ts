@@ -1,5 +1,18 @@
+import { raw_results as vrc_tipping_point_raw } from "./vrc_tipping_point";
+
+export type AllowablePointFormats = vrc_tipping_point_raw;
+
 export enum Game {
     VRC_TIPPING_POINT
+}
+
+export enum Program {
+    VRC
+}
+
+export interface CompetitionMeta {
+    game: Game;
+    program: Program;
 }
 
 export enum AgeGroup {
@@ -7,8 +20,10 @@ export enum AgeGroup {
     HIGH_SCHOOL
 }
 
+type TeamId = number;
+
 export interface Team {
-    id?: number;
+    id?: TeamId;
     number: string;
     name: string;
     city: string;
@@ -21,4 +36,20 @@ export interface Team {
     divisionId: number;
     checkedIn: boolean;
     ageGroup: AgeGroup;
+}
+
+export interface ScoreTeamMeta {
+    teamId: TeamId;
+    disqualified: boolean;
+    noShow: boolean;
+}
+
+export interface ScoreAllianceMeta {
+    team1: ScoreTeamMeta;
+    team2: ScoreTeamMeta;
+}
+
+export interface VrcMatchParticpants {
+    redAlliance: ScoreAllianceMeta;
+    blueAlliance: ScoreAllianceMeta;
 }
