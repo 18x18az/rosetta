@@ -1,4 +1,9 @@
 import { raw_results as vrc_tipping_point_raw } from "./vrc_tipping_point";
+import {
+    MatchParticpants as VrcMatchParticipants,
+    PointRaw as VrcPointRaw,
+    MatchQualificationResults as VrcQualificationResults
+} from "./vrc";
 
 export type AllowablePointFormats = vrc_tipping_point_raw;
 
@@ -49,7 +54,13 @@ export interface ScoreAllianceMeta {
     team2: ScoreTeamMeta;
 }
 
-export interface VrcMatchParticpants {
-    redAlliance: ScoreAllianceMeta;
-    blueAlliance: ScoreAllianceMeta;
+export type ParticipantInfo = VrcMatchParticipants;
+
+export type PointRaw = VrcPointRaw;
+
+export interface FullRawMatch {
+    participants: ParticipantInfo;
+    rawResults: PointRaw
 }
+
+export type QualificationResults = VrcQualificationResults;
