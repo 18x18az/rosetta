@@ -25,22 +25,18 @@ export enum AgeGroup {
     HIGH_SCHOOL
 }
 
-type TeamId = number;
+type TeamId = string;
 
 export interface Team {
     id?: TeamId;
     number: string;
     name: string;
-    city: string;
-    region: string;
-    country: string;
-    shortName: string;
+    location: string;
     school: string;
-    sponsors: string;
-    tiebreaker: number;
-    divisionId: number;
-    checkedIn: boolean;
-    ageGroup: AgeGroup;
+}
+
+export interface Teams {
+    [key: TeamId]: Team
 }
 
 export interface ScoreTeamMeta {
