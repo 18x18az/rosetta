@@ -25,7 +25,7 @@ export enum AgeGroup {
     HIGH_SCHOOL
 }
 
-type TeamId = string;
+export type TeamId = string;
 
 export interface Team {
     id?: TeamId;
