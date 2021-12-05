@@ -60,3 +60,15 @@ export interface FullRawMatch {
 }
 
 export type QualificationResults = VrcQualificationResults;
+
+export interface SimpleAllianceResults {
+    team1: TeamId;
+    team2: TeamId;
+    score: number;
+}
+
+export interface SimpleMatchResult {
+    name: string;
+    red: SimpleAllianceResults;
+    blue: SimpleAllianceResults;
+}
