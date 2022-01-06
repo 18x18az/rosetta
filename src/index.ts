@@ -78,7 +78,7 @@ export enum MESSAGE_TYPE {
     GET = "GET"
 }
 
-export type IPath = Array<String>
+export type IPath = Array<string>
 
 export interface IMessage {
     type: MESSAGE_TYPE
