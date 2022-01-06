@@ -72,3 +72,16 @@ export interface SimpleMatchResult {
     red: SimpleAllianceResults;
     blue: SimpleAllianceResults;
 }
+
+export enum MESSAGE_TYPE {
+    POST = "POST",
+    GET = "GET"
+}
+
+export type IPath = Array<String>
+
+export interface IMessage {
+    type: MESSAGE_TYPE
+    path: IPath
+    payload?: any
+}
