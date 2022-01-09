@@ -26,6 +26,7 @@ export enum AgeGroup {
 }
 
 export type TeamId = string;
+export type FieldId = string;
 
 export interface Team {
     id?: TeamId;
@@ -84,4 +85,16 @@ export interface IMessage {
     type: MESSAGE_TYPE
     path: IPath
     payload?: any
+}
+
+export enum FieldControl {
+    AUTONOMOUS,
+    DRIVER,
+    PAUSED,
+    DISABLED
+}
+export interface IFieldState {
+    field: FieldId
+    control: FieldControl
+    timeRemaining: number
 }
