@@ -99,3 +99,25 @@ export interface IFieldState {
     timeRemaining: number
     match: string
 }
+
+export enum MatchType {
+    QUAL = "QUAL",
+    R16 = "R16",
+    QF = "QF",
+    SF = "SF",
+    F = "F"
+}
+
+export interface IAllianceTeams {
+    team1: TeamId
+    team2: TeamId
+}
+
+export interface IMatchInfo {
+    matchId: string
+    type: MatchType
+    number: number
+    subNumber?: number
+    red: IAllianceTeams
+    blue: IAllianceTeams
+}
