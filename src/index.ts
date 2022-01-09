@@ -27,6 +27,7 @@ export enum AgeGroup {
 
 export type TeamId = string;
 export type FieldId = string;
+export type MatchId = string;
 
 export interface Team {
     id?: TeamId;
@@ -114,10 +115,14 @@ export interface IAllianceTeams {
 }
 
 export interface IMatchInfo {
-    matchId: string
+    matchId: MatchId
     type: MatchType
     number: number
     subNumber?: number
     red: IAllianceTeams
     blue: IAllianceTeams
+}
+
+export interface IMatchList {
+    [key: MatchId]: IMatchInfo
 }
