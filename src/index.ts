@@ -97,4 +97,5 @@ export interface IFieldState {
     field: FieldId
     control: FieldControl
     timeRemaining: number
+    match: string
 }
