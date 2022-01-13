@@ -126,3 +126,11 @@ export interface IMatchInfo {
 export interface IMatchList {
     [key: MatchId]: IMatchInfo
 }
+
+export interface IAllianceSelectionStatus{
+    picking: TeamId | null
+    selected: TeamId | null
+    eligible: Array<TeamId> // can be picked by an alliance captain
+    remaining: Array<TeamId> // can not be picked, but can still be alliance captain
+    alliances: Array<IAllianceTeams>
+}
