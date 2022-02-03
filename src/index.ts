@@ -92,7 +92,8 @@ export enum FieldControl {
     AUTONOMOUS,
     DRIVER,
     PAUSED,
-    DISABLED
+    DISABLED,
+    TIMEOUT
 }
 export interface IFieldState {
     field: FieldId
