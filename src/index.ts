@@ -102,6 +102,11 @@ export interface IFieldState {
     match: string
 }
 
+export interface IFieldInfo {
+    field: FieldId
+    name: string
+}
+
 export enum MatchType {
     QUAL = "QUAL",
     R16 = "R16",
