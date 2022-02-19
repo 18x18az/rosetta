@@ -140,3 +140,9 @@ export interface IAllianceSelectionStatus{
     remaining: Array<TeamId> // can not be picked, but can still be alliance captain
     alliances: Array<IAllianceTeams>
 }
+
+export interface ICycleTimeInfo {
+    rollingAvg: number,
+    recentCycleTimes: number[],
+    recentMatches: string[]
+}
