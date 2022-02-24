@@ -7,6 +7,13 @@ import {
 
 export type AllowablePointFormats = vrc_tipping_point_raw;
 
+export enum DisplayState {
+    UPCOMING,
+    ALLIANCE,
+    SCORE,
+    AWARD
+}
+
 export enum Game {
     VRC_TIPPING_POINT
 }
