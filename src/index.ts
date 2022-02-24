@@ -153,3 +153,10 @@ export interface ICycleTimeInfo {
     recentCycleTimes: number[],
     recentMatches: string[]
 }
+
+export interface IAward {
+    name: string
+    winner: TeamId | null
+}
+
+export type IAwards = Array<IAward>;
