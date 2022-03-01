@@ -1,42 +1,42 @@
-import { raw_results as vrc_tipping_point_raw } from "./vrc_tipping_point";
+import { IRawResults as IVrcTippingPointRaw } from "./vrc_tipping_point";
 import {
-	MatchParticpants as VrcMatchParticipants,
-	PointRaw as VrcPointRaw,
-	MatchQualificationResults as VrcQualificationResults
+	IMatchParticipants as VrcMatchParticipants,
+	IPointRaw as VrcPointRaw,
+	IMatchQualificationResults as VrcQualificationResults
 } from "./vrc";
 
-export type AllowablePointFormats = vrc_tipping_point_raw;
+export type AllowablePointFormats = IVrcTippingPointRaw;
 
-export enum DisplayState {
-    UPCOMING,
-    ALLIANCE,
-    SCORE,
-    AWARD
+export enum DISPLAY_STATE {
+    UPCOMING = "UPCOMING",
+    ALLIANCE = "ALLIANCE",
+    SCORE = "SCORE",
+    AWARD = "AWARD"
 }
 
-export enum Game {
-    VRC_TIPPING_POINT
+export enum GAME {
+    VRC_TIPPING_POINT = "VRC_TIPPING_POINT"
 }
 
-export enum Program {
-    VRC
+export enum PROGRAM {
+    VRC = "VRC"
 }
 
-export interface CompetitionMeta {
-    game: Game;
-    program: Program;
+export interface ICompetitionMeta {
+    game: GAME;
+    program: PROGRAM;
 }
 
-export enum AgeGroup {
-    MIDDLE_SCHOOL,
-    HIGH_SCHOOL
+export enum AGE_GROUP {
+    MIDDLE_SCHOOL = "MS",
+    HIGH_SCHOOL = "HS"
 }
 
 export type TeamId = string;
 export type FieldId = string;
 export type MatchId = string;
 
-export interface Team {
+export interface ITeam {
     id?: TeamId;
     number: string;
     name: string;
@@ -44,42 +44,42 @@ export interface Team {
     school: string;
 }
 
-export interface Teams {
-    [key: TeamId]: Team
+export interface ITeams {
+    [key: TeamId]: ITeam
 }
 
-export interface ScoreTeamMeta {
+export interface IScoreTeamMeta {
     teamId: TeamId;
     disqualified: boolean;
     noShow: boolean;
 }
 
-export interface ScoreAllianceMeta {
-    team1: ScoreTeamMeta;
-    team2: ScoreTeamMeta;
+export interface IScoreAllianceMeta {
+    team1: IScoreTeamMeta;
+    team2: IScoreTeamMeta;
 }
 
 export type ParticipantInfo = VrcMatchParticipants;
 
 export type PointRaw = VrcPointRaw;
 
-export interface FullRawMatch {
+export interface IFullRawMatch {
     participants: ParticipantInfo;
     rawResults: PointRaw
 }
 
 export type QualificationResults = VrcQualificationResults;
 
-export interface SimpleAllianceResults {
+export interface ISimpleAllianceResults {
     team1: TeamId;
     team2: TeamId;
     score: number;
 }
 
-export interface SimpleMatchResult {
+export interface ISimpleMatchResult {
     name: string;
-    red: SimpleAllianceResults;
-    blue: SimpleAllianceResults;
+    red: ISimpleAllianceResults;
+    blue: ISimpleAllianceResults;
 }
 
 export enum MESSAGE_TYPE {
@@ -96,16 +96,16 @@ export interface IMessage {
     payload?: any
 }
 
-export enum FieldControl {
-    AUTONOMOUS,
-    DRIVER,
-    PAUSED,
-    DISABLED,
-    TIMEOUT
+export enum FIELD_CONTROL {
+    AUTONOMOUS = "AUTO",
+    DRIVER = "DRIVER",
+    PAUSED = "PAUSED",
+    DISABLED = "DISABLED",
+    TIMEOUT = "TO"
 }
 export interface IFieldState {
     field: FieldId
-    control: FieldControl
+    control: FIELD_CONTROL
     timeRemaining: number
     match: string
 }
@@ -115,7 +115,7 @@ export interface IFieldInfo {
     name: string
 }
 
-export enum MatchType {
+export enum MATCH_TYPE {
     QUAL = "QUAL",
     R16 = "R16",
     QF = "QF",
@@ -130,7 +130,7 @@ export interface IAllianceTeams {
 
 export interface IMatchInfo {
     matchId: MatchId
-    type: MatchType
+    type: MATCH_TYPE
     number: number
     subNumber?: number
     red: IAllianceTeams

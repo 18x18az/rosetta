@@ -1,24 +1,24 @@
-import { ScoreAllianceMeta, AllowablePointFormats } from "..";
-import { QualificationResults as vrc_tipping_point_qual_results } from "../vrc_tipping_point";
+import { IScoreAllianceMeta, AllowablePointFormats } from "..";
+import { IQualificationResults as vrc_tipping_point_qual_results } from "../vrc_tipping_point";
 
-export interface MatchParticpants {
-    redAlliance: ScoreAllianceMeta;
-    blueAlliance: ScoreAllianceMeta;
+export interface IMatchParticipants {
+    redAlliance: IScoreAllianceMeta;
+    blueAlliance: IScoreAllianceMeta;
 }
 
-export interface PointRaw {
+export interface IPointRaw {
     redAlliance: AllowablePointFormats;
     blueAlliance: AllowablePointFormats;
 }
 
 export type TeamQualificationResults = vrc_tipping_point_qual_results;
 
-export interface AllianceQualificationResults {
+export interface IAllianceQualificationResults {
     team1: TeamQualificationResults
     team2: TeamQualificationResults
 }
 
-export interface MatchQualificationResults {
-    redAlliance: AllianceQualificationResults
-    blueAlliance: AllianceQualificationResults
+export interface IMatchQualificationResults {
+    redAlliance: IAllianceQualificationResults
+    blueAlliance: IAllianceQualificationResults
 }
