@@ -1,4 +1,4 @@
-export interface raw_results {
+export interface IRawResults {
     autonomous: number;
     awp?: boolean;
     rings_on_neutral_mobile_goal_high_branches: number;
@@ -9,7 +9,7 @@ export interface raw_results {
     elevated_mobile_goals: number;
 }
 
-export interface QualificationResults {
+export interface IQualificationResults {
     wp: number
     ap: number
     sp: number
