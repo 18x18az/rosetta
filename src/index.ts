@@ -1,8 +1,8 @@
 import { raw_results as vrc_tipping_point_raw } from "./vrc_tipping_point";
 import {
-    MatchParticpants as VrcMatchParticipants,
-    PointRaw as VrcPointRaw,
-    MatchQualificationResults as VrcQualificationResults
+	MatchParticpants as VrcMatchParticipants,
+	PointRaw as VrcPointRaw,
+	MatchQualificationResults as VrcQualificationResults
 } from "./vrc";
 
 export type AllowablePointFormats = vrc_tipping_point_raw;
@@ -92,6 +92,7 @@ export type IPath = Array<string>
 export interface IMessage {
     type: MESSAGE_TYPE
     path: IPath
+    // eslint-disable-next-line  @typescript-eslint/no-explicit-any
     payload?: any
 }
 

@@ -10,7 +10,8 @@
     "scripts": {
         "build": "tsc",
         "test": "jest --coverage",
-        "prepare": "yarn run build"
+        "prepare": "yarn run build",
+        "lint": "eslint --ext .ts --ignore-path .gitignore ."
     },
     "files": [
         "lib/**/*"
@@ -20,6 +21,12 @@
         "VEX Robotics"
     ],
     "devDependencies": {
+        "@typescript-eslint/eslint-plugin": "^5.13.0",
+        "@typescript-eslint/parser": "^5.13.0",
+        "eslint": "^8.10.0",
+        "eslint-config-prettier": "^8.4.0",
+        "eslint-plugin-prettier": "^4.0.0",
+        "prettier": "^2.5.1",
         "typescript": "^4.4.4"
     }
 }
