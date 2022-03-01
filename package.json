@@ -8,6 +8,7 @@
     "author": "Alec <alecmichaelmiller@gmail.com>",
     "license": "MIT",
     "scripts": {
+        "setup": "git config core.hooksPath .githooks && yarn install",
         "build": "tsc",
         "test": "jest --coverage",
         "prepare": "yarn run build",
