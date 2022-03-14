@@ -1,12 +1,3 @@
-import { IRawResults as IVrcTippingPointRaw } from "./vrc_tipping_point";
-import {
-	IMatchParticipants as VrcMatchParticipants,
-	IPointRaw as VrcPointRaw,
-	IMatchQualificationResults as VrcQualificationResults
-} from "./vrc";
-
-export type AllowablePointFormats = IVrcTippingPointRaw;
-
 export enum DISPLAY_STATE {
     UPCOMING = "UPCOMING",
     ALLIANCE = "ALLIANCE",
@@ -58,17 +49,6 @@ export interface IScoreAllianceMeta {
     team1: IScoreTeamMeta;
     team2: IScoreTeamMeta;
 }
-
-export type ParticipantInfo = VrcMatchParticipants;
-
-export type PointRaw = VrcPointRaw;
-
-export interface IFullRawMatch {
-    participants: ParticipantInfo;
-    rawResults: PointRaw
-}
-
-export type QualificationResults = VrcQualificationResults;
 
 export interface ISimpleAllianceResults {
     team1: TeamId;
