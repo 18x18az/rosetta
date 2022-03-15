@@ -141,5 +141,3 @@ export interface IAward {
 }
 
 export type IAwards = Array<IAward>;
-
-// test comment
