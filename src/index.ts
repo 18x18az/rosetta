@@ -5,27 +5,23 @@ export enum DISPLAY_STATE {
     AWARD = "AWARD"
 }
 
-export enum GAME {
-    VRC_TIPPING_POINT = "VRC_TIPPING_POINT"
-}
-
 export enum PROGRAM {
-    VRC = "VRC"
-}
-
-export interface ICompetitionMeta {
-    game: GAME;
-    program: PROGRAM;
+    VRC = "VRC",
+    VEXU = "VEXU"
 }
 
 export enum AGE_GROUP {
     MIDDLE_SCHOOL = "MS",
-    HIGH_SCHOOL = "HS"
+    HIGH_SCHOOL = "HS",
+    COLLEGE = "VU"
 }
 
-export type TeamId = string;
-export type FieldId = string;
-export type MatchId = string;
+type Id = string;
+
+export type TeamId = Id;
+export type FieldId = Id;
+export type MatchId = Id;
+export type SkillsRunId = Id
 
 export interface ITeam {
     id?: TeamId;
@@ -33,33 +29,11 @@ export interface ITeam {
     name: string;
     location: string;
     school: string;
+    age: AGE_GROUP;
 }
 
 export interface ITeams {
     [key: TeamId]: ITeam
-}
-
-export interface IScoreTeamMeta {
-    teamId: TeamId;
-    disqualified: boolean;
-    noShow: boolean;
-}
-
-export interface IScoreAllianceMeta {
-    team1: IScoreTeamMeta;
-    team2: IScoreTeamMeta;
-}
-
-export interface ISimpleAllianceResults {
-    team1: TeamId;
-    team2: TeamId;
-    score: number;
-}
-
-export interface ISimpleMatchResult {
-    name: string;
-    red: ISimpleAllianceResults;
-    blue: ISimpleAllianceResults;
 }
 
 export enum MESSAGE_TYPE {
@@ -76,20 +50,6 @@ export interface IMessage {
     payload?: any
 }
 
-export enum FIELD_CONTROL {
-    AUTONOMOUS = "AUTO",
-    DRIVER = "DRIVER",
-    PAUSED = "PAUSED",
-    DISABLED = "DISABLED",
-    TIMEOUT = "TO"
-}
-export interface IFieldState {
-    field: FieldId
-    control: FIELD_CONTROL
-    timeRemaining: number
-    match: string
-}
-
 export interface IFieldInfo {
     field: FieldId
     name: string
@@ -103,18 +63,21 @@ export enum MATCH_TYPE {
     F = "F"
 }
 
-export interface IAllianceTeams {
+export interface IVrcAllianceTeams {
     team1: TeamId
     team2: TeamId
 }
 
+export interface IMatchTeams {
+    red: IVrcAllianceTeams | TeamId
+    blue: IVrcAllianceTeams | TeamId
+}
 export interface IMatchInfo {
     matchId: MatchId
     type: MATCH_TYPE
     number: number
     subNumber?: number
-    red: IAllianceTeams
-    blue: IAllianceTeams
+    teams: IMatchTeams
 }
 
 export interface IMatchList {
@@ -126,7 +89,7 @@ export interface IAllianceSelectionStatus{
     selected: TeamId | null
     eligible: Array<TeamId> // can be picked by an alliance captain
     remaining: Array<TeamId> // can not be picked, but can still be alliance captain
-    alliances: Array<IAllianceTeams>
+    alliances: Array<IVrcAllianceTeams>
 }
 
 export interface ICycleTimeInfo {
@@ -137,8 +100,32 @@ export interface ICycleTimeInfo {
 
 export interface IAward {
     name: string
-    winner: TeamId | null
+    winner: TeamId | IVrcAllianceTeams | null
 }
 
 export type IAwards = Array<IAward>;
 
+export interface ISkillsScoring {
+    run: SkillsRunId
+    raw: IRawScoring
+    stopTime: number
+}
+export interface IMatchScoring {
+    match: MatchId
+    red: IAllianceScoring
+    blue: IAllianceScoring
+
+}
+export interface IAllianceScoring {
+    raw: IRawScoring
+    wonAuto: boolean
+    gotAwp?: boolean
+    team1Dq: boolean
+    team2Dq?: boolean
+}
+export interface IRawScoring {
+    highGoalDiscs: number
+    lowGoalDiscs: number
+    ownedRollers: number
+    coveredTiles: number
+}
