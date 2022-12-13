@@ -29,7 +29,7 @@ export interface ITeam {
     name: string;
     location: string;
     school: string;
-    age: AGE_GROUP;
+    age?: AGE_GROUP;
 }
 
 export interface ITeams {
