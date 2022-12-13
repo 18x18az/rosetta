@@ -50,6 +50,21 @@ export interface IMessage {
     payload?: any
 }
 
+export enum FIELD_CONTROL {
+    AUTONOMOUS = "AUTO",
+    DRIVER = "DRIVER",
+    PAUSED = "PAUSED",
+    DISABLED = "DISABLED",
+    TIMEOUT = "TO"
+}
+
+export interface IFieldState {
+    field: FieldId
+    control: FIELD_CONTROL
+    timeRemaining: number
+    match: string
+}
+
 export interface IFieldInfo {
     field: FieldId
     name: string
@@ -63,33 +78,41 @@ export enum MATCH_TYPE {
     F = "F"
 }
 
-export interface IVrcAllianceTeams {
+export interface IAllianceTeams {
     team1: TeamId
     team2: TeamId
 }
 
-export interface IMatchTeams {
-    red: IVrcAllianceTeams | TeamId
-    blue: IVrcAllianceTeams | TeamId
-}
 export interface IMatchInfo {
     matchId: MatchId
     type: MATCH_TYPE
     number: number
     subNumber?: number
-    teams: IMatchTeams
+    red: IAllianceTeams | TeamId
+    blue: IAllianceTeams | TeamId
+}
+
+export interface ISimpleAllianceResults {
+    team1: TeamId;
+    team2: TeamId;
+    score: number;
+}
+export interface ISimpleMatchResult {
+    name: string;
+    red: ISimpleAllianceResults;
+    blue: ISimpleAllianceResults;
 }
 
 export interface IMatchList {
     [key: MatchId]: IMatchInfo
 }
 
-export interface IAllianceSelectionStatus{
+export interface IAllianceSelectionStatus {
     picking: TeamId | null
     selected: TeamId | null
     eligible: Array<TeamId> // can be picked by an alliance captain
     remaining: Array<TeamId> // can not be picked, but can still be alliance captain
-    alliances: Array<IVrcAllianceTeams>
+    alliances: Array<IAllianceTeams>
 }
 
 export interface ICycleTimeInfo {
@@ -100,32 +123,7 @@ export interface ICycleTimeInfo {
 
 export interface IAward {
     name: string
-    winner: TeamId | IVrcAllianceTeams | null
+    winner: TeamId | IAllianceTeams | null
 }
 
 export type IAwards = Array<IAward>;
-
-export interface ISkillsScoring {
-    run: SkillsRunId
-    raw: IRawScoring
-    stopTime: number
-}
-export interface IMatchScoring {
-    match: MatchId
-    red: IAllianceScoring
-    blue: IAllianceScoring
-
-}
-export interface IAllianceScoring {
-    raw: IRawScoring
-    wonAuto: boolean
-    gotAwp?: boolean
-    team1Dq: boolean
-    team2Dq?: boolean
-}
-export interface IRawScoring {
-    highGoalDiscs: number
-    lowGoalDiscs: number
-    ownedRollers: number
-    coveredTiles: number
-}
