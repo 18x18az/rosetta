@@ -128,7 +128,7 @@ export interface IAward {
 
 export type IAwards = Array<IAward>;
 
-interface IOBSConfig {
+export interface IOBSConfig {
     setManual: boolean,
     isConnected: boolean,
     attemptReconnect: boolean
