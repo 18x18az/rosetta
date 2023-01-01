@@ -5,6 +5,15 @@ export enum DISPLAY_STATE {
     AWARD = "AWARD"
 }
 
+export enum COMPETITION_STAGE {
+    IDLE = "IDLE",
+    INSPECTION = "INSPECTION",
+    QUALS = "QUALS",
+    ALLIANCE = "ALLIANCE",
+    ELIMS = "ELIMS",
+    AWARDS = "AWARDS"
+}
+
 export enum PROGRAM {
     VRC = "VRC",
     VEXU = "VEXU"
