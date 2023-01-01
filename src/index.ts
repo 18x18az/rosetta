@@ -1,8 +1,7 @@
 export enum DISPLAY_STATE {
     UPCOMING = "UPCOMING",
-    ALLIANCE = "ALLIANCE",
     SCORE = "SCORE",
-    AWARD = "AWARD"
+    NONE = "NONE"
 }
 
 export enum COMPETITION_STAGE {
