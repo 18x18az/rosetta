@@ -134,7 +134,7 @@ export interface IOBSConfig {
     attemptReconnect: boolean
 }
 
-export interface InspectionStatus {
+export interface IInspectionStatus {
     noShow: ITeam[];
     notCheckedIn: ITeam[];
     notStarted: ITeam[];
