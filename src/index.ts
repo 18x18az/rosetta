@@ -143,9 +143,9 @@ export interface IOBSConfig {
 }
 
 export interface IInspectionStatus {
-    noShow: ITeam[];
-    notCheckedIn: ITeam[];
-    notStarted: ITeam[];
-    partial: ITeam[];
-    inspected: ITeam[];
+    noShow: TeamId[];
+    notCheckedIn: TeamId[];
+    notStarted: TeamId[];
+    partial: TeamId[];
+    inspected: TeamId[];
 }
