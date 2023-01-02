@@ -133,3 +133,11 @@ export interface IOBSConfig {
     isConnected: boolean,
     attemptReconnect: boolean
 }
+
+export interface InspectionStatus {
+    noShow: ITeam[];
+    notCheckedIn: ITeam[];
+    notStarted: ITeam[];
+    partial: ITeam[];
+    inspected: ITeam[];
+}
