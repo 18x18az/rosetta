@@ -150,3 +150,26 @@ export interface IInspectionStatus {
     partial: TeamId[];
     inspected: TeamId[];
 }
+
+export interface IRankingData {
+    rank: number,
+    team: TeamId,
+    avgWP: number,
+    avgAP: number,
+    avgSP: number,
+    record: string
+}
+
+export type IRankings = Array<IRankingData>
+
+export interface ISkillsRankingData {
+    rank: number,
+    team: TeamId,
+    total: number,
+    highProgramming: number,
+    numProgramming: number,
+    highDriver: number,
+    numDriver: number
+}
+
+export type ISkillsRankings = Array<ISkillsRankingData>
