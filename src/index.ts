@@ -158,9 +158,9 @@ export interface IRankingData {
     avgAP: number,
     avgSP: number,
     record: string
-};
+}
 
-export type IRankings = Array<IRankingData>;
+export type IRankings = Array<IRankingData>
 
 export interface ISkillsRankingData {
     rank: number,
@@ -171,4 +171,5 @@ export interface ISkillsRankingData {
     highDriver: number,
     numDriver: number
 }
-export type ISkillsRankings = Array<ISkillsRankingData>;
+
+export type ISkillsRankings = Array<ISkillsRankingData>
