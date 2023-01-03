@@ -1,6 +1,7 @@
 export enum DISPLAY_STATE {
     UPCOMING = "UPCOMING",
     SCORE = "SCORE",
+    OTHER = "OTHER",
     NONE = "NONE"
 }
 
