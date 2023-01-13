@@ -78,6 +78,17 @@ export enum REF_COMMAND {
     DISPLAY = "DISPLAY"
 }
 
+export enum MATCH_STAGE {
+    IDLE = "IDLE",
+    STING_IN = "IN",
+    INTRO = "INTRO",
+    AUTONOMOUS = "AUTO",
+    PAUSED = "PAUSED",
+    DRIVER = "DRIVER",
+    OUTRO = "OUTRO",
+    STING_OUT = "OUT"
+}
+
 export interface IFieldState {
     field: FieldId
     control: FIELD_CONTROL
