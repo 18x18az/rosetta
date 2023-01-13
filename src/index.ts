@@ -67,6 +67,17 @@ export enum FIELD_CONTROL {
     TIMEOUT = "TO"
 }
 
+export enum FIELD_COMMAND {
+    QUEUE_NEXT = "NEXT",
+    START_MATCH = "START"
+
+}
+
+export enum REF_COMMAND {
+    START = "START",
+    DISPLAY = "DISPLAY"
+}
+
 export interface IFieldState {
     field: FieldId
     control: FIELD_CONTROL
