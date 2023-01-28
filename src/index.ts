@@ -109,9 +109,9 @@ export enum MATCH_TYPE {
     F = "F"
 }
 
-export interface IAllianceTeams {
+export interface IAlliance {
     team1: TeamId
-    team2: TeamId
+    team2?: TeamId
 }
 
 export interface IMatchInfo {
@@ -119,13 +119,12 @@ export interface IMatchInfo {
     type: MATCH_TYPE
     number: number
     subNumber?: number
-    red: IAllianceTeams | TeamId
-    blue: IAllianceTeams | TeamId
+    red: IAlliance
+    blue: IAlliance
 }
 
 export interface ISimpleAllianceResults {
-    team1: TeamId;
-    team2: TeamId;
+    alliance: IAlliance
     score: number;
 }
 export interface ISimpleMatchResult {
@@ -143,7 +142,7 @@ export interface IAllianceSelectionStatus {
     selected: TeamId | null
     eligible: Array<TeamId> // can be picked by an alliance captain
     remaining: Array<TeamId> // can not be picked, but can still be alliance captain
-    alliances: Array<IAllianceTeams>
+    alliances: Array<IAlliance>
 }
 
 export interface ICycleTimeInfo {
@@ -154,7 +153,7 @@ export interface ICycleTimeInfo {
 
 export interface IAward {
     name: string
-    winner: TeamId | IAllianceTeams | null
+    winner: TeamId | IAlliance | null
 }
 
 export type IAwards = Array<IAward>;
