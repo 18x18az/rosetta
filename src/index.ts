@@ -86,7 +86,8 @@ export enum MATCH_STAGE {
     PAUSED = "PAUSED",
     DRIVER = "DRIVER",
     OUTRO = "OUTRO",
-    STING_OUT = "OUT"
+    STING_OUT = "OUT",
+    HOLD_FOR_SCORE = "HOLD"
 }
 
 export interface IFieldState {
