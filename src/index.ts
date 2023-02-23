@@ -195,3 +195,8 @@ export interface ISkillsRankingData {
 }
 
 export type ISkillsRankings = Array<ISkillsRankingData>
+
+export interface IAnnouncement {
+    uid: string,
+    message: string
+}
