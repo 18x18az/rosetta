@@ -1,40 +1,35 @@
 {
-  "name": "@18x18az/rosetta",
-  "version": "0.0.0-development",
-  "description": "Shared interfaces for Talos",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
-  "repository": "https://github.com/18x18az/rosetta.git",
-  "author": "Alec <alecmichaelmiller@gmail.com>",
-  "license": "MIT",
-  "scripts": {
-    "build": "tsc",
-    "test": "jest --coverage",
-    "prepare": "yarn run build",
-    "lint": "eslint --ext .ts --ignore-path .gitignore .",
-    "semantic-release": "semantic-release --branches release"
-  },
-  "files": [
-    "lib/**/*"
-  ],
-  "keywords": [
-    "VRC",
-    "VEX Robotics"
-  ],
-  "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.13.0",
-    "@typescript-eslint/parser": "^5.13.0",
-    "cz-conventional-changelog": "^3.3.0",
-    "eslint": "^8.10.0",
-    "eslint-config-prettier": "^8.4.0",
-    "eslint-plugin-prettier": "^4.0.0",
-    "prettier": "^2.5.1",
-    "semantic-release": "^19.0.2",
-    "typescript": "^4.4.4"
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
+    "name": "@18x18az/rosetta",
+    "version": "0.0.0-development",
+    "description": "Shared interfaces for Talos",
+    "main": "lib/index.js",
+    "types": "lib/index.d.ts",
+    "repository": "https://github.com/18x18az/rosetta.git",
+    "author": "Alec <alecmichaelmiller@gmail.com>",
+    "license": "MIT",
+    "scripts": {
+        "build": "tsc",
+        "test": "jest --coverage",
+        "prepare": "yarn run build",
+        "lint": "ts-standard",
+        "semantic-release": "semantic-release --branches release"
+    },
+    "files": [
+        "lib/**/*"
+    ],
+    "keywords": [
+        "VRC",
+        "VEX Robotics"
+    ],
+    "devDependencies": {
+        "cz-conventional-changelog": "^3.3.0",
+        "semantic-release": "^19.0.2",
+        "ts-standard": "^12.0.2",
+        "typescript": "^4.4.4"
+    },
+    "config": {
+        "commitizen": {
+            "path": "./node_modules/cz-conventional-changelog"
+        }
     }
-  }
 }
