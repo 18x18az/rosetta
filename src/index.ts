@@ -37,6 +37,8 @@ export enum EventStage {
 
 export enum ConnectionState {
   CONNECTING = 'CONNECTING',
+  IDLE = 'IDLE',
+  AWAITING_AUTH = 'AWAITAUTH',
   DOWN = 'DOWN',
   AUTH = 'AUTH',
   CODE = 'CODE',
