@@ -1,46 +1,40 @@
-export interface Alliance {
-  team1: number
-  team2?: number
-}
-
-export interface ScheduledQualificationMatch {
-  matchNumber: number
-  redAlliance: Alliance
-  blueAlliance: Alliance
-}
-
-export interface RawScheduleBlock {
-  start: Date
-  end: Date
-  numMatches: number
-}
-
-export interface RawMatchBlock {
-  start: Date
-  end: Date
-  matches: ScheduledQualificationMatch[]
-}
-
-export interface RawTeam {
+export interface Team {
   number: string
   name: string
-  location: string
-  school: string
+  city: string
+  state: string
+  country: string
+  ageGroup: string
 }
 
-export enum EventStage {
-  LOADING = 'LOADING', // State unknown
-  SETUP = 'SETUP', // Middleman not fully setup
-  EVENT = 'EVENT', // All required info pulled from TM
-  TEARDOWN = 'TEARDOWN' // Event is over, look for a change in event name to go back to setup
+export interface TeamInfo {
+  [key: string]: Team
 }
 
-export enum ConnectionState {
-  CONNECTING = 'CONNECTING',
-  IDLE = 'IDLE',
-  AWAITING_AUTH = 'AWAITAUTH',
-  DOWN = 'DOWN',
-  AUTH = 'AUTH',
-  CODE = 'CODE',
-  CONNECTED = 'CONNECTED'
+export enum EVENT_STAGE {
+  SETUP = 'setup',
+  CHECKIN = 'checkin',
+  EVENT = 'event',
+  TEARDOWN = 'teardown'
 }
+
+export enum INSPECTION_STAGE {
+  NO_SHOW = 'noShow',
+  NOT_HERE = 'notHere',
+  CHECKED_IN = 'checkedIn',
+  PARTIAL = 'partial',
+  COMPLETE = 'complete'
+}
+
+export interface InspectionCriteriaSummary {
+  text: string
+  met: boolean
+  uuid: number
+}
+
+export interface InspectionSectionSummary {
+  text: string
+  criteria: InspectionCriteriaSummary[]
+}
+
+export type InspectionSummary = InspectionSectionSummary[]
